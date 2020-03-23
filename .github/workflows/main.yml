@@ -1,0 +1,23 @@
+name: Update images and commit
+
+on: 
+  schedule:
+    - cron: 13 27 * * *
+
+jobs:
+  grunt-build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Run "npm install"
+      uses: elstudio/actions-js-build/build@v2
+      with:
+        args: "install"
+
+    - name: Commit changes
+      uses: elstudio/actions-js-build/commit@v3
+      with:
+        commitMessage: Update files
