@@ -1,0 +1,11 @@
+{
+  "name": "vix_statistics",
+  "version": "1.0.0",
+  "description": "Collection of statistics of the Vienna Interet eXchange (inofficial)",
+  "scripts": {
+    "postinstall": "node update-graphs.js"
+  },
+  "keywords": [],
+  "author": "Thomas Schreiber",
+  "license": "MIT"
+}
