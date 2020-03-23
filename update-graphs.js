@@ -12,7 +12,7 @@ const urls = {
 const target = './images/';
 
 //let filenames contain dates
-const dateStr = date.toISOString().substring(0, 10);;
+const dateStr = date.toISOString().substring(0, 13);;
 
 //download images from the links above
 Object.keys(urls).forEach((key) => {
@@ -22,10 +22,13 @@ Object.keys(urls).forEach((key) => {
     https.get(url, function (response) {
         response.pipe(file);
         file.on('finish', function () {
+            console.log("created file " + dest);
             file.close();  // close() is async, call cb after close completes.
         });
     }).on('error', function (err) { // Handle errors
+        console.log("error on file " + dest + " " + err);
         fs.unlink(dest); // Delete the file async. (But we don't check the result)
     });
 });
 
+console.log("finished update");
