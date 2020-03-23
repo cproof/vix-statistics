@@ -1,0 +1,31 @@
+name: Update images and commit
+
+on: 
+  push:
+  schedule:
+    - cron: '0,15,30,45 * * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v4
+      with:
+        author_name: GitHub Actions
+        author_email: ci@github.com
+        message: "Update files"
+        add: "*.png"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
