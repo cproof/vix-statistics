@@ -5,8 +5,7 @@ on:
     - cron: '0,15,30,45 * * * *'
 
 jobs:
-  grunt-build:
-
+  build:
     runs-on: ubuntu-latest
 
     steps:
