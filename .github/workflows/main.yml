@@ -1,6 +1,7 @@
 name: Update images and commit
 
 on: 
+  push:
   schedule:
     - cron: '0,15,30,45 * * * *'
 
