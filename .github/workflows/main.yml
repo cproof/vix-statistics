@@ -2,7 +2,7 @@ name: Update images and commit
 
 on: 
   schedule:
-    - cron: 13 27 * * *
+    - cron: '13 27 * * *'
 
 jobs:
   grunt-build:
