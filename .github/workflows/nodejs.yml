@@ -3,7 +3,7 @@ name: Update images and commit
 on: 
   push:
   schedule:
-    - cron: '0,15,30,45 * * * *'
+    - cron: '00 00,12 * * *'
 
 jobs:
   build:
